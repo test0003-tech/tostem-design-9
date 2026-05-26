@@ -839,9 +839,9 @@ function BlogSection({ theme }: { theme: ThemeColors }) {
 
   return (
     <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-0 sm:px-0 lg:px-0">
         <FadeInWhenVisible>
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex items-center justify-between mb-12 px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 whitespace-nowrap">Visit Our Knowledge Centre</h2>
             <button className="hidden sm:inline-flex px-6 py-2.5 rounded-lg text-sm font-medium border-2 transition-all duration-300 flex items-center gap-2 hover:text-white" style={{ borderColor: theme.preview, color: theme.preview }}>
               View All Blogs <ArrowRight className="w-4 h-4" />
@@ -849,58 +849,35 @@ function BlogSection({ theme }: { theme: ThemeColors }) {
           </div>
         </FadeInWhenVisible>
 
-        {/* Blog Layout: 1 full + 3 stacked */}
-        <div className="grid lg:grid-cols-5 gap-6">
-          {/* Featured Blog - Full */}
-          <FadeInWhenVisible direction="left" className="lg:col-span-3">
-            <motion.div
-              whileHover={{ y: -4 }}
-              className={`group ${theme.cardBg} rounded-2xl overflow-hidden shadow-lg border ${theme.cardBorder} cursor-pointer h-full`}
-              onClick={() => setPopupBlog(0)}
-            >
-              <div className="relative overflow-hidden">
-                <img src={blogs[0].image} alt={blogs[0].title} className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute top-4 left-4 flex gap-2">
-                  <span className={`${theme.tag} text-white text-xs font-medium px-3 py-1 rounded-full`}>{blogs[0].category}</span>
-                  <span className="bg-black/50 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">{blogs[0].date}</span>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-gray-700 transition-colors">{blogs[0].title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">{blogs[0].excerpt}</p>
-                <div className="mt-4 flex items-center gap-1 text-sm font-medium" style={{ color: theme.preview }}>
-                  Read More <ArrowRight className="w-4 h-4" />
-                </div>
-              </div>
-            </motion.div>
-          </FadeInWhenVisible>
-
-          {/* Side Blogs - 3 stacked */}
-          <div className="lg:col-span-2 space-y-4">
-            {blogs.slice(1).map((blog, i) => (
-              <FadeInWhenVisible key={i} direction="right" delay={0.1 * (i + 1)}>
-                <motion.div
-                  whileHover={{ x: 4 }}
-                  className={`group ${theme.cardBg} rounded-xl overflow-hidden shadow-md border ${theme.cardBorder} cursor-pointer flex`}
-                  onClick={() => setPopupBlog(i + 1)}
-                >
-                  <div className="w-32 shrink-0 overflow-hidden">
-                    <img src={blog.image} alt={blog.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+        {/* Blog Layout: 4 equal cards spanning full viewport width */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 lg:gap-0">
+          {blogs.map((blog, i) => (
+            <FadeInWhenVisible key={i} direction={i === 0 ? 'left' : i === 3 ? 'right' : 'up'} delay={0.1 * i}>
+              <motion.div
+                whileHover={{ y: -4 }}
+                className={`group ${theme.cardBg} overflow-hidden border-r border-b ${theme.cardBorder} cursor-pointer h-full`}
+                onClick={() => setPopupBlog(i)}
+              >
+                <div className="relative overflow-hidden">
+                  <img src={blog.image} alt={blog.title} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute top-4 left-4 flex gap-2">
+                    <span className={`${theme.tag} text-white text-xs font-medium px-3 py-1 rounded-full`}>{blog.category}</span>
+                    <span className="bg-black/50 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">{blog.date}</span>
                   </div>
-                  <div className="p-4 flex-1 min-w-0">
-                    <div className="flex gap-2 mb-2">
-                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${theme.accentLight}`}>{blog.category}</span>
-                    </div>
-                    <h4 className="text-sm font-semibold text-gray-900 line-clamp-2 group-hover:text-gray-700 transition-colors">{blog.title}</h4>
-                    <p className="text-xs text-gray-500 mt-1">{blog.date}</p>
+                </div>
+                <div className="p-5">
+                  <h3 className="text-base font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors line-clamp-2">{blog.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">{blog.excerpt}</p>
+                  <div className="mt-4 flex items-center gap-1 text-sm font-medium" style={{ color: theme.preview }}>
+                    Read More <ArrowRight className="w-4 h-4" />
                   </div>
-                </motion.div>
-              </FadeInWhenVisible>
-            ))}
-          </div>
+                </div>
+              </motion.div>
+            </FadeInWhenVisible>
+          ))}
         </div>
 
-        <div className="text-center mt-10 sm:hidden">
+        <div className="text-center mt-10 sm:hidden px-4">
           <button className={`${theme.buttonPrimary} px-8 py-3 rounded-xl font-medium text-sm flex items-center gap-2 mx-auto shadow-lg`}>
             View All Blogs <ArrowRight className="w-4 h-4" />
           </button>
