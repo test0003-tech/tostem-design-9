@@ -1,0 +1,2331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOSTEM India - World's Leading Aluminium Windows & Doors Brand</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ========== CSS CUSTOM PROPERTIES / THEMES ========== */
+:root {
+  --primary: #1a2744;
+  --primary-light: #2a3d66;
+  --accent: #c8a45c;
+  --accent-light: #dbb978;
+  --bg-dark: #0f1a2e;
+  --bg-light: #f5f3ef;
+  --text-light: #ffffff;
+  --text-dark: #1a2744;
+  --nav-bg: #1a2744;
+  --nav-text: #ffffff;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(26,39,68,0.1);
+  --spacing-unit: 1;
+  --border-radius: 8px;
+  --transition-speed: 0.4s;
+}
+body.theme-ocean { --primary:#0a3d62;--primary-light:#1a5f8a;--accent:#3dc1d3;--accent-light:#63d4e2;--bg-dark:#072d47;--nav-bg:#0a3d62; }
+body.theme-forest { --primary:#1e3a2b;--primary-light:#2d5a42;--accent:#7cb342;--accent-light:#9ccc65;--bg-dark:#122820;--nav-bg:#1e3a2b; }
+body.theme-sunset { --primary:#3d1c02;--primary-light:#5d2e0a;--accent:#ff8f00;--accent-light:#ffb300;--bg-dark:#2a1301;--nav-bg:#3d1c02; }
+body.theme-plum { --primary:#2d1b42;--primary-light:#452863;--accent:#ab47bc;--accent-light:#ce93d8;--bg-dark:#1a0f28;--nav-bg:#2d1b42; }
+body.theme-arctic { --primary:#1a3a4a;--primary-light:#2a5a6e;--accent:#80deea;--accent-light:#b2ebf2;--bg-dark:#0f2530;--nav-bg:#1a3a4a; }
+body.theme-desert { --primary:#3e2c1a;--primary-light:#5c432e;--accent:#d4a574;--accent-light:#e6c9a8;--bg-dark:#2a1e11;--nav-bg:#3e2c1a; }
+body.theme-rose { --primary:#3a1a2a;--primary-light:#5c2e44;--accent:#e91e63;--accent-light:#f48fb1;--bg-dark:#26101c;--nav-bg:#3a1a2a; }
+body.theme-emerald { --primary:#0d2818;--primary-light:#1a4430;--accent:#00e676;--accent-light:#69f0ae;--bg-dark:#071a0e;--nav-bg:#0d2818; }
+body.theme-copper { --primary:#2c1810;--primary-light:#4a2c20;--accent:#b87333;--accent-light:#d4955a;--bg-dark:#1a0e08;--nav-bg:#2c1810; }
+body.theme-slate { --primary:#263238;--primary-light:#37474f;--accent:#78909c;--accent-light:#b0bec5;--bg-dark:#1a2226;--nav-bg:#263238; }
+
+body.design-modern { --spacing-unit:0.8; --border-radius:4px; }
+body.design-classic { --spacing-unit:1.2; --border-radius:16px; }
+body.design-bold { --spacing-unit:1.4; --border-radius:24px; }
+
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Poppins',sans-serif;
+  background:var(--bg-light);
+  color:var(--text-dark);
+  line-height:1.6;
+  overflow-x:hidden;
+  transition: background var(--transition-speed), color var(--transition-speed);
+}
+h1,h2,h3,h4,h5,h6 { font-family:'Montserrat',sans-serif; font-weight:700; line-height:1.2; }
+a { text-decoration:none; color:inherit; transition:color 0.3s; }
+img { max-width:100%; height:auto; display:block; }
+ul { list-style:none; }
+button { cursor:pointer; border:none; background:none; font-family:inherit; }
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar { width:8px; }
+::-webkit-scrollbar-track { background:#f1f1f1; }
+::-webkit-scrollbar-thumb { background:var(--primary); border-radius:4px; }
+::-webkit-scrollbar-thumb:hover { background:var(--primary-light); }
+
+/* ========== TOP BAR ========== */
+.top-bar {
+  background:var(--bg-dark);
+  color:var(--text-light);
+  padding:8px 40px;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:16px;
+  font-size:13px;
+  position:relative;
+  z-index:1001;
+  transition: background var(--transition-speed);
+}
+.top-bar label { font-weight:500; margin-right:4px; color:var(--accent); }
+.top-bar select {
+  background:var(--primary);
+  color:var(--text-light);
+  border:1px solid var(--accent);
+  padding:4px 12px;
+  border-radius:4px;
+  font-size:12px;
+  font-family:'Poppins',sans-serif;
+  cursor:pointer;
+  transition:all 0.3s;
+}
+.top-bar select:hover { background:var(--primary-light); }
+
+/* ========== HEADER ========== */
+.header {
+  background:var(--text-light);
+  padding:12px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 20px var(--card-shadow);
+  transition:all var(--transition-speed);
+}
+.header-logo img { height:44px; width:auto; }
+.header-tagline {
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+  font-weight:500;
+  color:var(--primary);
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:color var(--transition-speed);
+}
+.header-tagline span { color:var(--accent); font-weight:700; }
+
+/* ========== NAVIGATION ========== */
+.nav-wrapper {
+  background:var(--nav-bg);
+  transition:background var(--transition-speed);
+  position:sticky;
+  top:60px;
+  z-index:999;
+}
+.nav-main {
+  display:flex;
+  align-items:center;
+  max-width:1400px;
+  margin:0 auto;
+  padding:0 20px;
+}
+.nav-main > li { position:relative; }
+.nav-main > li > a {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:16px 22px;
+  color:var(--nav-text);
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  transition:all 0.3s;
+  white-space:nowrap;
+}
+.nav-main > li > a:hover,
+.nav-main > li > a.active {
+  background:var(--primary-light);
+  color:var(--accent);
+}
+.nav-main > li > a .arrow { font-size:10px; transition:transform 0.3s; }
+.nav-main > li:hover > a .arrow { transform:rotate(180deg); }
+
+/* Dropdown */
+.nav-dropdown {
+  position:absolute;
+  top:100%;
+  left:0;
+  min-width:260px;
+  background:var(--text-light);
+  box-shadow:0 10px 40px rgba(0,0,0,0.15);
+  border-top:3px solid var(--accent);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:all 0.3s;
+  z-index:1000;
+  border-radius:0 0 var(--border-radius) var(--border-radius);
+}
+.nav-main > li:hover .nav-dropdown {
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.nav-dropdown a {
+  display:block;
+  padding:12px 20px;
+  color:var(--text-dark);
+  font-size:13px;
+  font-weight:500;
+  border-bottom:1px solid #f0f0f0;
+  transition:all 0.3s;
+}
+.nav-dropdown a:hover {
+  background:var(--bg-light);
+  color:var(--accent);
+  padding-left:28px;
+}
+
+/* Mega Menu */
+.mega-menu {
+  position:fixed;
+  top:120px;
+  left:0;
+  width:100%;
+  background:var(--text-light);
+  box-shadow:0 15px 50px rgba(0,0,0,0.2);
+  border-top:3px solid var(--accent);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:all 0.3s;
+  z-index:998;
+  max-height:70vh;
+  overflow-y:auto;
+}
+.mega-menu.active {
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.mega-menu-inner {
+  max-width:1400px;
+  margin:0 auto;
+  padding:30px 40px;
+  display:flex;
+  gap:30px;
+}
+.mega-tabs {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  min-width:220px;
+  border-right:1px solid #eee;
+  padding-right:30px;
+}
+.mega-tab-btn {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 18px;
+  background:transparent;
+  color:var(--text-dark);
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+  font-weight:600;
+  border-radius:var(--border-radius);
+  transition:all 0.3s;
+  text-align:left;
+}
+.mega-tab-btn:hover { background:var(--bg-light); color:var(--accent); }
+.mega-tab-btn.active {
+  background:var(--primary);
+  color:var(--text-light);
+}
+.mega-tab-btn i { font-size:18px; width:24px; text-align:center; }
+.mega-tab-content { display:none; flex:1; }
+.mega-tab-content.active { display:flex; gap:40px; }
+.mega-col { flex:1; }
+.mega-col h4 {
+  font-size:15px;
+  font-weight:700;
+  color:var(--primary);
+  margin-bottom:16px;
+  padding-bottom:10px;
+  border-bottom:2px solid var(--accent);
+  transition:color var(--transition-speed);
+}
+.mega-col a {
+  display:block;
+  padding:8px 0;
+  font-size:13px;
+  color:#555;
+  transition:all 0.3s;
+}
+.mega-col a:hover { color:var(--accent); padding-left:8px; }
+.mega-product-img {
+  width:300px;
+  border-radius:var(--border-radius);
+  overflow:hidden;
+}
+.mega-product-img img { width:100%; height:200px; object-fit:cover; }
+
+/* Mobile Nav Toggle */
+.nav-toggle {
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  padding:10px;
+  cursor:pointer;
+}
+.nav-toggle span {
+  width:24px;
+  height:2px;
+  background:var(--primary);
+  transition:all 0.3s;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  position:relative;
+  height:90vh;
+  min-height:600px;
+  max-height:900px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero video {
+  position:absolute;
+  top:50%;
+  left:50%;
+  min-width:100%;
+  min-height:100%;
+  transform:translate(-50%,-50%);
+  object-fit:cover;
+  z-index:0;
+}
+.hero-overlay {
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:linear-gradient(135deg, rgba(15,26,46,0.85) 0%, rgba(26,39,68,0.6) 50%, rgba(200,164,92,0.2) 100%);
+  z-index:1;
+}
+.hero-content {
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:0 20px;
+  max-width:900px;
+}
+.hero-content h1 {
+  font-size:clamp(28px,5vw,60px);
+  color:var(--text-light);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  margin-bottom:16px;
+  opacity:0;
+  transform:translateY(30px);
+  animation:heroFadeUp 1s 0.3s forwards;
+}
+.hero-content h1 span { color:var(--accent); }
+.hero-content p {
+  font-size:clamp(14px,2vw,20px);
+  color:rgba(255,255,255,0.9);
+  margin-bottom:32px;
+  font-weight:300;
+  opacity:0;
+  transform:translateY(20px);
+  animation:heroFadeUp 1s 0.6s forwards;
+}
+.hero-btns {
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+  opacity:0;
+  transform:translateY(20px);
+  animation:heroFadeUp 1s 0.9s forwards;
+}
+.btn-primary {
+  background:var(--accent);
+  color:var(--primary);
+  padding:14px 36px;
+  font-family:'Montserrat',sans-serif;
+  font-weight:700;
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  border-radius:var(--border-radius);
+  transition:all 0.3s;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.btn-primary:hover { background:var(--accent-light); transform:translateY(-2px); box-shadow:0 8px 25px rgba(200,164,92,0.4); }
+.btn-outline {
+  background:transparent;
+  color:var(--text-light);
+  padding:14px 36px;
+  font-family:'Montserrat',sans-serif;
+  font-weight:700;
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  border:2px solid var(--accent);
+  border-radius:var(--border-radius);
+  transition:all 0.3s;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.btn-outline:hover { background:var(--accent); color:var(--primary); transform:translateY(-2px); }
+.hero-scroll {
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:2;
+  color:var(--text-light);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  text-align:center;
+  opacity:0;
+  animation:heroFadeUp 1s 1.2s forwards;
+}
+.hero-scroll i { display:block; margin-top:8px; font-size:20px; animation:bounceDown 2s infinite; }
+
+@keyframes heroFadeUp {
+  to { opacity:1; transform:translateY(0); }
+}
+@keyframes bounceDown {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(8px); }
+}
+
+/* ========== ABOUT SECTION ========== */
+.about-section {
+  padding:calc(80px * var(--spacing-unit)) 40px;
+  max-width:1400px;
+  margin:0 auto;
+  display:flex;
+  gap:60px;
+  align-items:center;
+}
+.about-text { flex:1; }
+.about-text .section-label {
+  font-size:12px;
+  font-weight:700;
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  margin-bottom:12px;
+  transition:color var(--transition-speed);
+}
+.about-text h2 {
+  font-size:clamp(24px,3.5vw,42px);
+  color:var(--primary);
+  margin-bottom:20px;
+  transition:color var(--transition-speed);
+}
+.about-text p {
+  font-size:15px;
+  color:#555;
+  line-height:1.8;
+  margin-bottom:16px;
+}
+.about-text .read-more-content {
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.6s ease;
+}
+.about-text .read-more-content.expanded { max-height:500px; }
+.read-more-btn {
+  color:var(--accent);
+  font-weight:600;
+  font-size:14px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:8px;
+  transition:all 0.3s;
+  cursor:pointer;
+}
+.read-more-btn:hover { color:var(--primary); gap:10px; }
+.about-image {
+  flex:0 0 400px;
+  border-radius:var(--border-radius);
+  overflow:hidden;
+  box-shadow:0 20px 60px var(--card-shadow);
+  position:relative;
+}
+.about-image img { width:100%; height:500px; object-fit:cover; }
+.about-image::after {
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:4px;
+  background:var(--accent);
+  transition:background var(--transition-speed);
+}
+
+/* ========== STATS BAR ========== */
+.stats-bar {
+  background:var(--primary);
+  padding:50px 40px;
+  transition:background var(--transition-speed);
+}
+.stats-inner {
+  max-width:1400px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  gap:30px;
+}
+.stat-item { text-align:center; min-width:150px; }
+.stat-number {
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(32px,4vw,52px);
+  font-weight:900;
+  color:var(--accent);
+  transition:color var(--transition-speed);
+}
+.stat-label {
+  font-size:13px;
+  color:var(--text-light);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-top:4px;
+  opacity:0.85;
+}
+
+/* ========== FEATURES SECTION ========== */
+.features-section {
+  padding:calc(80px * var(--spacing-unit)) 40px;
+  max-width:1400px;
+  margin:0 auto;
+}
+.features-section .section-header {
+  text-align:center;
+  margin-bottom:50px;
+}
+.features-section .section-header h2 {
+  font-size:clamp(24px,3vw,38px);
+  color:var(--primary);
+  margin-bottom:10px;
+  transition:color var(--transition-speed);
+}
+.features-section .section-header p {
+  font-size:15px;
+  color:#777;
+  max-width:600px;
+  margin:0 auto;
+}
+.features-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+}
+.feature-card {
+  background:var(--card-bg);
+  border-radius:var(--border-radius);
+  overflow:hidden;
+  box-shadow:0 5px 30px var(--card-shadow);
+  transition:all 0.4s;
+  opacity:0;
+  transform:translateY(30px);
+}
+.feature-card.animated {
+  opacity:1;
+  transform:translateY(0);
+}
+.feature-card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 15px 50px rgba(0,0,0,0.15);
+}
+.feature-card-img {
+  height:200px;
+  overflow:hidden;
+  position:relative;
+}
+.feature-card-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; }
+.feature-card:hover .feature-card-img img { transform:scale(1.08); }
+.feature-card-img .feature-badge {
+  position:absolute;
+  top:12px;
+  right:12px;
+  background:var(--accent);
+  color:var(--primary);
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+}
+.feature-card-body { padding:24px; }
+.feature-card-body h3 {
+  font-size:17px;
+  color:var(--primary);
+  margin-bottom:10px;
+  transition:color var(--transition-speed);
+}
+.feature-card-body p {
+  font-size:13px;
+  color:#666;
+  line-height:1.7;
+}
+
+/* ========== PRODUCT TABS ========== */
+.product-tabs-section {
+  padding:calc(80px * var(--spacing-unit)) 40px;
+  background:var(--bg-light);
+}
+.product-tabs-inner {
+  max-width:1400px;
+  margin:0 auto;
+}
+.product-tabs-inner .section-header {
+  text-align:center;
+  margin-bottom:40px;
+}
+.product-tabs-inner .section-header h2 {
+  font-size:clamp(24px,3vw,38px);
+  color:var(--primary);
+  transition:color var(--transition-speed);
+}
+.tab-buttons {
+  display:flex;
+  gap:4px;
+  margin-bottom:30px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.tab-btn {
+  padding:14px 28px;
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  color:var(--text-dark);
+  background:var(--card-bg);
+  border-radius:var(--border-radius) var(--border-radius) 0 0;
+  transition:all 0.3s;
+  border:1px solid #e0e0e0;
+  border-bottom:none;
+}
+.tab-btn:hover { color:var(--accent); }
+.tab-btn.active {
+  background:var(--primary);
+  color:var(--text-light);
+  border-color:var(--primary);
+}
+.tab-content { display:none; }
+.tab-content.active { display:flex; gap:40px; align-items:center; }
+.tab-content-image {
+  flex:1;
+  border-radius:var(--border-radius);
+  overflow:hidden;
+  box-shadow:0 10px 40px var(--card-shadow);
+}
+.tab-content-image img { width:100%; height:450px; object-fit:cover; transition:transform 0.5s; }
+.tab-content-image:hover img { transform:scale(1.03); }
+.tab-content-info { flex:0 0 400px; }
+.tab-content-info h3 {
+  font-size:28px;
+  color:var(--primary);
+  margin-bottom:16px;
+  transition:color var(--transition-speed);
+}
+.tab-content-info p {
+  font-size:14px;
+  color:#555;
+  line-height:1.8;
+  margin-bottom:24px;
+}
+.tab-content-info .btn-primary { font-size:13px; padding:12px 28px; }
+
+/* ========== TESTIMONIALS ========== */
+.testimonials-section {
+  padding:calc(80px * var(--spacing-unit)) 40px;
+  background:var(--primary);
+  position:relative;
+  overflow:hidden;
+  transition:background var(--transition-speed);
+}
+.testimonials-section::before {
+  content:'';
+  position:absolute;
+  top:0;right:0;
+  width:40%;
+  height:100%;
+  background:linear-gradient(135deg,transparent,rgba(200,164,92,0.05));
+  pointer-events:none;
+}
+.testimonials-inner {
+  max-width:1400px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.testimonials-inner .section-header {
+  text-align:center;
+  margin-bottom:40px;
+}
+.testimonials-inner .section-header h2 {
+  font-size:clamp(24px,3vw,38px);
+  color:var(--text-light);
+  margin-bottom:10px;
+}
+.testimonials-inner .section-header p {
+  color:rgba(255,255,255,0.7);
+  font-size:15px;
+}
+.testimonial-swiper .swiper-slide {
+  background:rgba(255,255,255,0.08);
+  border-radius:var(--border-radius);
+  padding:30px;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.1);
+}
+.testimonial-video {
+  width:100%;
+  border-radius:var(--border-radius);
+  margin-bottom:20px;
+}
+.testimonial-video video { width:100%; border-radius:var(--border-radius); }
+.testimonial-info h4 {
+  font-size:16px;
+  color:var(--accent);
+  margin-bottom:4px;
+  transition:color var(--transition-speed);
+}
+.testimonial-info p {
+  font-size:13px;
+  color:rgba(255,255,255,0.7);
+}
+.testimonial-nav {
+  display:flex;
+  gap:16px;
+  margin-top:30px;
+  justify-content:center;
+}
+.testimonial-nav button {
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.1);
+  border:2px solid var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.3s;
+}
+.testimonial-nav button:hover {
+  background:var(--accent);
+}
+.testimonial-nav button img { width:18px; }
+
+/* ========== GALLERY SECTION ========== */
+.gallery-section {
+  padding:calc(80px * var(--spacing-unit)) 40px;
+  max-width:1400px;
+  margin:0 auto;
+}
+.gallery-section .section-header {
+  text-align:center;
+  margin-bottom:40px;
+}
+.gallery-section .section-header h2 {
+  font-size:clamp(24px,3vw,38px);
+  color:var(--primary);
+  margin-bottom:10px;
+  transition:color var(--transition-speed);
+}
+.gallery-section .section-header p {
+  font-size:15px;
+  color:#777;
+}
+.gallery-collage {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:repeat(4,180px);
+  gap:12px;
+  margin-bottom:40px;
+}
+.gallery-collage .gallery-item {
+  border-radius:var(--border-radius);
+  overflow:hidden;
+  cursor:pointer;
+  position:relative;
+}
+.gallery-collage .gallery-item img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 0.5s;
+}
+.gallery-collage .gallery-item:hover img { transform:scale(1.1); }
+.gallery-collage .gallery-item::after {
+  content:attr(data-label);
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:10px 14px;
+  background:linear-gradient(transparent,rgba(0,0,0,0.7));
+  color:white;
+  font-size:12px;
+  font-weight:500;
+  opacity:0;
+  transition:opacity 0.3s;
+}
+.gallery-collage .gallery-item:hover::after { opacity:1; }
+.gallery-collage .gi-large { grid-column:span 2; grid-row:span 2; }
+.gallery-collage .gi-tall { grid-row:span 2; }
+.gallery-collage .gi-wide { grid-column:span 2; }
+.gallery-view-btn {
+  text-align:center;
+}
+.gallery-carousel-section {
+  padding:40px 0;
+}
+.gallery-carousel-section .swiper-slide img {
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:var(--border-radius);
+}
+
+/* ========== BLOG SECTION ========== */
+.blog-section {
+  padding:calc(80px * var(--spacing-unit)) 40px;
+  background:var(--bg-light);
+}
+.blog-inner {
+  max-width:1400px;
+  margin:0 auto;
+}
+.blog-inner .section-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:40px;
+}
+.blog-inner .section-header h2 {
+  font-size:clamp(24px,3vw,38px);
+  color:var(--primary);
+  transition:color var(--transition-speed);
+}
+.blog-grid {
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:30px;
+}
+.blog-card {
+  background:var(--card-bg);
+  border-radius:var(--border-radius);
+  overflow:hidden;
+  box-shadow:0 5px 25px var(--card-shadow);
+  cursor:pointer;
+  transition:all 0.4s;
+  opacity:0;
+  transform:translateY(20px);
+}
+.blog-card.animated {
+  opacity:1;
+  transform:translateY(0);
+}
+.blog-card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 15px 45px rgba(0,0,0,0.12);
+}
+.blog-card-img { overflow:hidden; }
+.blog-card-img img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 0.5s;
+}
+.blog-card:hover .blog-card-img img { transform:scale(1.05); }
+.blog-featured .blog-card-img { height:320px; }
+.blog-small .blog-card-img { height:160px; }
+.blog-card-body { padding:20px; }
+.blog-card-category {
+  font-size:11px;
+  font-weight:700;
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:8px;
+  transition:color var(--transition-speed);
+}
+.blog-card-body h3 {
+  font-size:16px;
+  color:var(--primary);
+  margin-bottom:8px;
+  line-height:1.4;
+  transition:color var(--transition-speed);
+}
+.blog-featured .blog-card-body h3 { font-size:20px; }
+.blog-card-date {
+  font-size:12px;
+  color:#999;
+}
+.blog-small-stack {
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.blog-small-stack .blog-card {
+  display:flex;
+  gap:16px;
+}
+.blog-small-stack .blog-card .blog-card-img {
+  flex:0 0 160px;
+  height:auto;
+}
+.blog-small-stack .blog-card .blog-card-body {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  background:var(--bg-dark);
+  color:var(--text-light);
+  padding:60px 40px 0;
+  transition:background var(--transition-speed);
+}
+.footer-inner {
+  max-width:1400px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1.2fr;
+  gap:40px;
+  padding-bottom:40px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.footer-brand img { height:36px; margin-bottom:20px; }
+.footer-brand p {
+  font-size:13px;
+  color:rgba(255,255,255,0.7);
+  line-height:1.8;
+  margin-bottom:20px;
+}
+.footer-social {
+  display:flex;
+  gap:12px;
+}
+.footer-social a {
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.1);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--text-light);
+  font-size:16px;
+  transition:all 0.3s;
+}
+.footer-social a:hover { background:var(--accent); color:var(--primary); }
+.footer-col h4 {
+  font-size:16px;
+  font-weight:700;
+  margin-bottom:20px;
+  color:var(--accent);
+  transition:color var(--transition-speed);
+}
+.footer-col a {
+  display:block;
+  padding:6px 0;
+  font-size:13px;
+  color:rgba(255,255,255,0.7);
+  transition:all 0.3s;
+}
+.footer-col a:hover { color:var(--accent); padding-left:6px; }
+.footer-contact p {
+  font-size:13px;
+  color:rgba(255,255,255,0.7);
+  margin-bottom:10px;
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  line-height:1.6;
+}
+.footer-contact p i { color:var(--accent); margin-top:3px; width:16px; flex-shrink:0; transition:color var(--transition-speed); }
+.footer-newsletter input[type="email"] {
+  width:100%;
+  padding:12px 16px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:var(--border-radius);
+  color:var(--text-light);
+  font-size:13px;
+  margin-bottom:12px;
+  font-family:'Poppins',sans-serif;
+  transition:all 0.3s;
+}
+.footer-newsletter input[type="email"]:focus {
+  outline:none;
+  border-color:var(--accent);
+  background:rgba(255,255,255,0.12);
+}
+.footer-newsletter .btn-primary {
+  width:100%;
+  justify-content:center;
+  font-size:12px;
+  padding:12px;
+}
+.footer-brand-logos {
+  max-width:1400px;
+  margin:0 auto;
+  padding:30px 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:40px;
+  flex-wrap:wrap;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.footer-brand-logos img {
+  height:28px;
+  opacity:0.5;
+  filter:grayscale(100%) brightness(2);
+  transition:all 0.3s;
+}
+.footer-brand-logos img:hover { opacity:1; filter:none; }
+.footer-copyright {
+  text-align:center;
+  padding:20px 40px;
+  font-size:12px;
+  color:rgba(255,255,255,0.5);
+}
+.footer-copyright a { color:var(--accent); }
+
+/* ========== FLOATING ENQUIRE ========== */
+.enquire-btn {
+  position:fixed;
+  right:0;
+  top:50%;
+  transform:translateY(-50%) rotate(-90deg);
+  transform-origin:right bottom;
+  background:var(--accent);
+  color:var(--primary);
+  font-family:'Montserrat',sans-serif;
+  font-weight:700;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  padding:12px 24px;
+  border-radius:var(--border-radius) var(--border-radius) 0 0;
+  z-index:9999;
+  transition:all 0.3s;
+  box-shadow:0 -4px 20px rgba(200,164,92,0.3);
+}
+.enquire-btn:hover {
+  background:var(--accent-light);
+  padding:12px 30px;
+}
+
+/* ========== COOKIE CONSENT ========== */
+.cookie-bar {
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:var(--primary);
+  color:var(--text-light);
+  padding:16px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  z-index:10000;
+  box-shadow:0 -5px 30px rgba(0,0,0,0.2);
+  transition:all 0.5s;
+  transform:translateY(100%);
+}
+.cookie-bar.visible { transform:translateY(0); }
+.cookie-bar p { font-size:13px; flex:1; }
+.cookie-bar p a { color:var(--accent); text-decoration:underline; }
+.cookie-accept {
+  background:var(--accent);
+  color:var(--primary);
+  padding:10px 24px;
+  font-weight:700;
+  font-size:13px;
+  border-radius:var(--border-radius);
+  transition:all 0.3s;
+  white-space:nowrap;
+}
+.cookie-accept:hover { background:var(--accent-light); }
+.cookie-decline {
+  background:transparent;
+  color:rgba(255,255,255,0.7);
+  padding:10px 20px;
+  font-size:13px;
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:var(--border-radius);
+  transition:all 0.3s;
+  white-space:nowrap;
+}
+.cookie-decline:hover { border-color:var(--accent); color:var(--accent); }
+
+/* ========== LIGHTBOX MODAL ========== */
+.lightbox-overlay {
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.92);
+  z-index:20000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:40px;
+}
+.lightbox-overlay.active { display:flex; }
+.lightbox-overlay img {
+  max-width:90%;
+  max-height:85vh;
+  object-fit:contain;
+  border-radius:var(--border-radius);
+}
+.lightbox-close {
+  position:absolute;
+  top:20px;right:30px;
+  color:white;
+  font-size:36px;
+  cursor:pointer;
+  transition:transform 0.3s;
+  z-index:20001;
+}
+.lightbox-close:hover { transform:rotate(90deg); }
+.lightbox-nav {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  color:white;
+  font-size:32px;
+  cursor:pointer;
+  padding:20px;
+  transition:all 0.3s;
+}
+.lightbox-nav:hover { color:var(--accent); }
+.lightbox-prev { left:20px; }
+.lightbox-next { right:20px; }
+.lightbox-caption {
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  color:white;
+  font-size:14px;
+  background:rgba(0,0,0,0.5);
+  padding:8px 20px;
+  border-radius:20px;
+}
+
+/* ========== BLOG MODAL ========== */
+.blog-modal-overlay {
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.7);
+  z-index:15000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:40px;
+  backdrop-filter:blur(5px);
+}
+.blog-modal-overlay.active { display:flex; }
+.blog-modal {
+  background:var(--card-bg);
+  border-radius:var(--border-radius);
+  max-width:700px;
+  width:100%;
+  max-height:85vh;
+  overflow-y:auto;
+  box-shadow:0 20px 80px rgba(0,0,0,0.3);
+  animation:modalSlideUp 0.4s;
+}
+@keyframes modalSlideUp {
+  from { opacity:0; transform:translateY(40px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.blog-modal-img { width:100%; height:300px; object-fit:cover; }
+.blog-modal-body { padding:30px; }
+.blog-modal-body .blog-card-category { margin-bottom:10px; }
+.blog-modal-body h2 {
+  font-size:24px;
+  color:var(--primary);
+  margin-bottom:12px;
+  transition:color var(--transition-speed);
+}
+.blog-modal-body .blog-card-date { margin-bottom:16px; }
+.blog-modal-body p {
+  font-size:14px;
+  color:#555;
+  line-height:1.8;
+  margin-bottom:16px;
+}
+.blog-modal-close {
+  position:absolute;
+  top:15px;right:20px;
+  width:40px;height:40px;
+  border-radius:50%;
+  background:rgba(0,0,0,0.5);
+  color:white;
+  font-size:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:all 0.3s;
+  z-index:1;
+}
+.blog-modal-close:hover { background:var(--accent); color:var(--primary); }
+
+/* ========== ANIMATIONS ========== */
+.fade-in {
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.animated {
+  opacity:1;
+  transform:translateY(0);
+}
+.fade-in-left {
+  opacity:0;
+  transform:translateX(-40px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in-left.animated {
+  opacity:1;
+  transform:translateX(0);
+}
+.fade-in-right {
+  opacity:0;
+  transform:translateX(40px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in-right.animated {
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width:1200px) {
+  .about-section { flex-direction:column; }
+  .about-image { flex:none; width:100%; max-width:500px; }
+  .about-image img { height:350px; }
+  .features-grid { grid-template-columns:repeat(2,1fr); }
+  .tab-content.active { flex-direction:column; }
+  .tab-content-info { flex:none; }
+  .footer-inner { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:992px) {
+  .top-bar { padding:8px 20px; flex-wrap:wrap; justify-content:center; }
+  .header { padding:12px 20px; }
+  .nav-main { display:none; flex-direction:column; position:absolute; top:100%;left:0;right:0; background:var(--nav-bg); padding:20px; }
+  .nav-main.open { display:flex; }
+  .nav-main > li > a { padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.1); }
+  .nav-dropdown { position:static; opacity:1; visibility:visible; transform:none; box-shadow:none; border-top:none; display:none; background:var(--primary-light); border-radius:0; }
+  .nav-main > li:hover .nav-dropdown,
+  .nav-main > li.dropdown-open .nav-dropdown { display:block; }
+  .nav-dropdown a { color:var(--text-light); border-bottom-color:rgba(255,255,255,0.05); }
+  .nav-toggle { display:flex; }
+  .gallery-collage { grid-template-columns:repeat(2,1fr); grid-template-rows:auto; }
+  .gallery-collage .gi-large,
+  .gallery-collage .gi-tall,
+  .gallery-collage .gi-wide { grid-column:span 1; grid-row:span 1; }
+  .gallery-collage .gallery-item { height:200px; }
+  .blog-grid { grid-template-columns:1fr; }
+  .blog-small-stack .blog-card { flex-direction:column; }
+  .blog-small-stack .blog-card .blog-card-img { flex:none; height:180px; }
+}
+@media (max-width:768px) {
+  .hero { height:70vh; min-height:500px; }
+  .features-grid { grid-template-columns:1fr; }
+  .stats-inner { flex-direction:column; align-items:center; }
+  .footer-inner { grid-template-columns:1fr; }
+  .cookie-bar { flex-direction:column; text-align:center; }
+  .enquire-btn { font-size:11px; padding:10px 18px; }
+  .gallery-collage { grid-template-columns:1fr; }
+  .gallery-collage .gallery-item { height:220px; }
+  .tab-buttons { gap:2px; }
+  .tab-btn { padding:10px 14px; font-size:11px; }
+  .about-section, .features-section, .product-tabs-section, .testimonials-section, .gallery-section, .blog-section { padding-left:20px; padding-right:20px; }
+  .footer { padding:40px 20px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== TOP BAR ========== -->
+<div class="top-bar">
+  <div>
+    <label>Design:</label>
+    <select id="designSelect">
+      <option value="default">Default Design</option>
+      <option value="modern">Modern Minimal</option>
+      <option value="classic">Classic Elegant</option>
+      <option value="bold">Bold Contemporary</option>
+    </select>
+  </div>
+  <div>
+    <label>Theme:</label>
+    <select id="themeSelect">
+      <option value="">Default (Navy + Gold)</option>
+      <option value="theme-ocean">Ocean Depths</option>
+      <option value="theme-forest">Forest Canopy</option>
+      <option value="theme-sunset">Sunset Amber</option>
+      <option value="theme-plum">Royal Plum</option>
+      <option value="theme-arctic">Arctic Frost</option>
+      <option value="theme-desert">Desert Sand</option>
+      <option value="theme-rose">Midnight Rose</option>
+      <option value="theme-emerald">Emerald City</option>
+      <option value="theme-copper">Copper Bronze</option>
+      <option value="theme-slate">Slate Storm</option>
+    </select>
+  </div>
+</div>
+
+<!-- ========== HEADER ========== -->
+<header class="header">
+  <div class="header-logo">
+    <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2024/07/logo-tostemindia.png" alt="TOSTEM India Logo">
+  </div>
+  <div class="header-tagline">
+    <span>Japanese Innovation</span> in Window Design
+  </div>
+  <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav-wrapper">
+  <ul class="nav-main" id="navMain">
+    <!-- About Tostem -->
+    <li>
+      <a href="#">About Tostem <i class="fa-solid fa-chevron-down arrow"></i></a>
+      <div class="nav-dropdown">
+        <a href="#">About Tostem</a>
+        <a href="#">Leader's Message</a>
+        <a href="#">Our Purpose And Behaviour</a>
+        <a href="#">Lixil Window System</a>
+        <a href="#">Awards</a>
+      </div>
+    </li>
+    <!-- Why Tostem -->
+    <li>
+      <a href="#">Why Tostem <i class="fa-solid fa-chevron-down arrow"></i></a>
+      <div class="nav-dropdown">
+        <a href="#">Total Housing Solutions</a>
+        <a href="#">Japanese Innovation</a>
+        <a href="#">Pre Engineered System Windows</a>
+        <a href="#">Quality Assurance and Testing</a>
+        <a href="#">TOSTEM Product Performance</a>
+        <a href="#">Surface & Colour Protection</a>
+        <a href="#">Anodised Aluminium Window</a>
+        <a href="#">Sound Insulated Doors and Windows</a>
+      </div>
+    </li>
+    <!-- Our Product - Mega Menu -->
+    <li class="has-mega">
+      <a href="#" id="megaTrigger">Our Product <i class="fa-solid fa-chevron-down arrow"></i></a>
+    </li>
+    <li><a href="#">Driving Experience</a></li>
+    <li><a href="#">TADA</a></li>
+    <li><a href="#">Knowledge Experience</a></li>
+    <li><a href="#">Reach Us</a></li>
+  </ul>
+</nav>
+
+<!-- ========== MEGA MENU ========== -->
+<div class="mega-menu" id="megaMenu">
+  <div class="mega-menu-inner">
+    <div class="mega-tabs">
+      <button class="mega-tab-btn active" data-tab="doors"><i class="fa-solid fa-door-open"></i> Aluminium Doors</button>
+      <button class="mega-tab-btn" data-tab="windows"><i class="fa-regular fa-window-maximize"></i> Aluminium Windows</button>
+      <button class="mega-tab-btn" data-tab="steel"><i class="fa-solid fa-shield-halved"></i> Steel Entrance Doors</button>
+      <button class="mega-tab-btn" data-tab="facades"><i class="fa-solid fa-building"></i> Fa&ccedil;ades</button>
+      <button class="mega-tab-btn" data-tab="interior"><i class="fa-solid fa-couch"></i> Interior</button>
+      <button class="mega-tab-btn" data-tab="airflow"><i class="fa-solid fa-wind"></i> Airflow System</button>
+    </div>
+    <div class="mega-tab-content active" id="tab-doors">
+      <div class="mega-col">
+        <h4>Designs</h4>
+        <a href="#">Sliding Doors</a>
+        <a href="#">Casement Doors</a>
+        <a href="#">French Doors</a>
+        <a href="#">Folding Bi Fold Doors</a>
+        <a href="#">Corner Slider</a>
+        <a href="#">Slide and Fold</a>
+        <a href="#">Ventilation Doors</a>
+      </div>
+      <div class="mega-col">
+        <h4>Series</h4>
+        <a href="#">Grants Series</a>
+        <a href="#">ATIS Series</a>
+        <a href="#">We Plus Series</a>
+        <a href="#">We 70 Series</a>
+      </div>
+      <div class="mega-product-img">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Aluminum-Doors-Home-Office.jpg" alt="Aluminium Doors">
+      </div>
+    </div>
+    <div class="mega-tab-content" id="tab-windows">
+      <div class="mega-col">
+        <h4>Designs</h4>
+        <a href="#">Sliding Windows</a>
+        <a href="#">Casement Windows</a>
+        <a href="#">Awning Windows</a>
+        <a href="#">Fixed Windows</a>
+        <a href="#">Glass To Glass Corner</a>
+        <a href="#">French Windows</a>
+        <a href="#">Tilt and Slide</a>
+        <a href="#">Slit Windows</a>
+        <a href="#">Vertical Sliding</a>
+      </div>
+      <div class="mega-col">
+        <h4>Series</h4>
+        <a href="#">Grants Series</a>
+        <a href="#">ATIS Series</a>
+        <a href="#">We Plus Series</a>
+        <a href="#">We 70 Series</a>
+      </div>
+      <div class="mega-product-img">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Aluminium-Windows-Home-Office-1.jpg" alt="Aluminium Windows">
+      </div>
+    </div>
+    <div class="mega-tab-content" id="tab-steel">
+      <div class="mega-col">
+        <h4>Designs</h4>
+        <a href="#">Regular Doors</a>
+        <a href="#">Designer Doors</a>
+        <a href="#">Premium Doors</a>
+      </div>
+      <div class="mega-col">
+        <h4>Series</h4>
+        <a href="#">Grants Series</a>
+        <a href="#">ATIS Series</a>
+        <a href="#">We Plus Series</a>
+        <a href="#">We 70 Series</a>
+      </div>
+      <div class="mega-product-img">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Warangkana-House-57.jpg" alt="Steel Entrance Doors">
+      </div>
+    </div>
+    <div class="mega-tab-content" id="tab-facades">
+      <div class="mega-col">
+        <h4>Fa&ccedil;ade Solutions</h4>
+        <a href="#">Curtain Wall Systems</a>
+        <a href="#">Stick Systems</a>
+        <a href="#">Unitized Systems</a>
+        <a href="#">Semi-Unitized Systems</a>
+      </div>
+      <div class="mega-product-img">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Warangkana-House-57.jpg" alt="Facades">
+      </div>
+    </div>
+    <div class="mega-tab-content" id="tab-interior">
+      <div class="mega-col">
+        <h4>Interior Solutions</h4>
+        <a href="#">Interior Doors</a>
+        <a href="#">Partitions</a>
+        <a href="#">Interior Windows</a>
+      </div>
+      <div class="mega-product-img">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2020/08/ez-banner-slide-1171x506.jpg" alt="Interior">
+      </div>
+    </div>
+    <div class="mega-tab-content" id="tab-airflow">
+      <div class="mega-col">
+        <h4>Airflow Solutions</h4>
+        <a href="#">Ventilation Slots</a>
+        <a href="#">Passive Ventilation</a>
+        <a href="#">Mechanical Ventilation</a>
+      </div>
+      <div class="mega-product-img">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/07/Vive-32-lowres-2-1171x506.jpg" alt="Airflow System">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="hero">
+  <video autoplay muted loop playsinline id="heroVideo">
+    <source src="https://www.tostemindia.com/wp-content/themes/tostem/video/WebsiteBanner_Grants.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1><span>TOSTEM</span> - WORLD'S LEADING ALUMINIUM WINDOWS AND DOORS BRAND</h1>
+    <p>Japanese innovation meets architectural excellence. Experience pre-engineered system windows crafted with precision and protected by TEXGUARD technology.</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-primary"><i class="fa-solid fa-grid-2"></i> Explore Products</a>
+      <a href="#enquire" class="btn-outline"><i class="fa-regular fa-calendar"></i> Book Appointment</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    Scroll to explore
+    <i class="fa-solid fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="about-section fade-in" id="about">
+  <div class="about-text">
+    <div class="section-label">About Tostem</div>
+    <h2>WHAT MAKES TOSTEM A LEADING BRAND</h2>
+    <p>TOSTEM is developed by LIXIL, one of the world's largest housing and building materials companies. Leveraging decades of Japanese innovation, TOSTEM delivers pre-engineered system windows and doors that combine superior aesthetics with unmatched performance.</p>
+    <p>Every TOSTEM product undergoes rigorous testing and quality assurance, ensuring they meet the highest global standards for thermal insulation, sound reduction, water resistance, and wind load capacity.</p>
+    <div class="read-more-content" id="readMoreContent">
+      <p>With TEXGUARD surface protection technology, TOSTEM products maintain their beauty for years, resisting UV degradation, scratching, and environmental wear. Our products are designed to withstand India's diverse climate conditions while maintaining their elegance and functionality.</p>
+      <p>TOSTEM's pre-engineered system ensures consistent quality across every installation. Each component is precisely manufactured and tested as a complete system, unlike conventional site-assembled windows that can vary in quality and performance.</p>
+      <p>From concept to completion, TOSTEM provides end-to-end solutions including design consultation, manufacturing, delivery, and professional installation through our certified dealer network across India.</p>
+    </div>
+    <button class="read-more-btn" id="readMoreBtn">Read More <i class="fa-solid fa-arrow-right"></i></button>
+  </div>
+  <div class="about-image fade-in-right">
+    <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/05/TostemTexguard-416x647.jpg" alt="TOSTEM TEXGUARD Technology">
+  </div>
+</section>
+
+<!-- ========== STATS ========== -->
+<section class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-number" data-target="50">0</div>
+      <div class="stat-label">Years of Innovation</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="50">0</div>
+      <div class="stat-label">Countries Worldwide</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="100">0</div>
+      <div class="stat-label">Product Series</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="10000">0</div>
+      <div class="stat-label">Happy Customers</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FEATURES ========== -->
+<section class="features-section" id="features">
+  <div class="section-header fade-in">
+    <h2>Why Choose TOSTEM</h2>
+    <p>Innovation, quality, and performance that sets the global standard</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-card-img">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Red-dot-125x127.jpeg" alt="Japanese Innovation">
+        <span class="feature-badge">Innovation</span>
+      </div>
+      <div class="feature-card-body">
+        <h3>Japanese Innovation</h3>
+        <p>Pioneering window technology from Japan, combining precision engineering with aesthetic excellence. Winner of the prestigious Red Dot Design Award.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-img">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/pre-engineered-173x130.jpeg" alt="Pre Engineered System">
+        <span class="feature-badge">Engineering</span>
+      </div>
+      <div class="feature-card-body">
+        <h3>Pre Engineered System</h3>
+        <p>Factory-assembled systems ensure consistent quality, unlike site-assembled windows. Every component is tested as a complete system for reliability.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-img">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/05/TostemTexguard-416x647.jpg" alt="TEXGUARD Technology">
+        <span class="feature-badge">Protection</span>
+      </div>
+      <div class="feature-card-body">
+        <h3>TEXGUARD Technology</h3>
+        <p>Advanced surface protection that resists UV degradation, scratching, and environmental wear. Your windows maintain their beauty for decades.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-img">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/05/Door-Loock-122x124.jpg" alt="Award Winning">
+        <span class="feature-badge">Awards</span>
+      </div>
+      <div class="feature-card-body">
+        <h3>Award Winning Product</h3>
+        <p>Recognized globally with the Red Dot Design Award, TOSTEM products represent the pinnacle of window and door design and engineering excellence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRODUCT TABS ========== -->
+<section class="product-tabs-section" id="products">
+  <div class="product-tabs-inner">
+    <div class="section-header fade-in">
+      <h2>Our Product Range</h2>
+    </div>
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-product-tab="pt-doors">Aluminium Doors</button>
+      <button class="tab-btn" data-product-tab="pt-windows">Aluminium Windows</button>
+      <button class="tab-btn" data-product-tab="pt-steel">Steel Entrance Doors</button>
+      <button class="tab-btn" data-product-tab="pt-facades">Fa&ccedil;ades</button>
+      <button class="tab-btn" data-product-tab="pt-interior">Interior</button>
+      <button class="tab-btn" data-product-tab="pt-airflow">Airflow System</button>
+    </div>
+    <div class="tab-content active" id="pt-doors">
+      <div class="tab-content-image">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Aluminum-Doors-Home-Office.jpg" alt="Aluminium Doors">
+      </div>
+      <div class="tab-content-info">
+        <h3>Aluminium Doors</h3>
+        <p>Experience the perfect blend of elegance and performance with TOSTEM's range of aluminium doors. From sliding to casement, French to bi-fold, each door is engineered with Japanese precision and protected by TEXGUARD technology.</p>
+        <p>Our pre-engineered door systems ensure consistent quality, superior thermal insulation, and exceptional sound reduction for your home or office.</p>
+        <a href="#" class="btn-primary"><i class="fa-solid fa-arrow-right"></i> Explore Doors</a>
+      </div>
+    </div>
+    <div class="tab-content" id="pt-windows">
+      <div class="tab-content-image">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Aluminium-Windows-Home-Office-1.jpg" alt="Aluminium Windows">
+      </div>
+      <div class="tab-content-info">
+        <h3>Aluminium Windows</h3>
+        <p>TOSTEM aluminium windows combine stunning aesthetics with outstanding performance. Available in sliding, casement, awning, fixed, and glass-to-glass corner designs to suit any architectural vision.</p>
+        <p>Each window features multi-point locking systems, superior weather sealing, and advanced thermal break technology for maximum comfort.</p>
+        <a href="#" class="btn-primary"><i class="fa-solid fa-arrow-right"></i> Explore Windows</a>
+      </div>
+    </div>
+    <div class="tab-content" id="pt-steel">
+      <div class="tab-content-image">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Warangkana-House-57.jpg" alt="Steel Entrance Doors">
+      </div>
+      <div class="tab-content-info">
+        <h3>Steel Entrance Doors</h3>
+        <p>Make a grand statement with TOSTEM's steel entrance doors. Available in regular, designer, and premium ranges, these doors offer unmatched security with sophisticated design.</p>
+        <p>Precision-engineered with premium steel and advanced locking mechanisms for maximum security and elegance.</p>
+        <a href="#" class="btn-primary"><i class="fa-solid fa-arrow-right"></i> Explore Steel Doors</a>
+      </div>
+    </div>
+    <div class="tab-content" id="pt-facades">
+      <div class="tab-content-image">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/08/Header-Image_IN-16-1171x506.jpg" alt="Facades">
+      </div>
+      <div class="tab-content-info">
+        <h3>Fa&ccedil;ades</h3>
+        <p>Transform building exteriors with TOSTEM's innovative facade systems. Our curtain wall, stick, and unitized systems combine architectural beauty with structural performance.</p>
+        <p>Engineered for superior thermal performance, water resistance, and wind load capacity in commercial and residential applications.</p>
+        <a href="#" class="btn-primary"><i class="fa-solid fa-arrow-right"></i> Explore Facades</a>
+      </div>
+    </div>
+    <div class="tab-content" id="pt-interior">
+      <div class="tab-content-image">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2020/08/ez-banner-slide-1171x506.jpg" alt="Interior">
+      </div>
+      <div class="tab-content-info">
+        <h3>Interior Solutions</h3>
+        <p>Elevate interior spaces with TOSTEM's range of interior doors, partitions, and windows. Designed to complement modern interiors while providing acoustic insulation and style.</p>
+        <a href="#" class="btn-primary"><i class="fa-solid fa-arrow-right"></i> Explore Interior</a>
+      </div>
+    </div>
+    <div class="tab-content" id="pt-airflow">
+      <div class="tab-content-image">
+        <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/07/Vive-32-lowres-2-1171x506.jpg" alt="Airflow System">
+      </div>
+      <div class="tab-content-info">
+        <h3>Airflow System</h3>
+        <p>TOSTEM's airflow solutions provide intelligent ventilation through innovative slot designs and passive ventilation systems, ensuring fresh air circulation without compromising on security or weather protection.</p>
+        <a href="#" class="btn-primary"><i class="fa-solid fa-arrow-right"></i> Explore Airflow</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="testimonials-section" id="testimonials">
+  <div class="testimonials-inner">
+    <div class="section-header">
+      <h2>What Our Customers Say</h2>
+      <p>Real stories from real homeowners who chose TOSTEM</p>
+    </div>
+    <div class="swiper testimonial-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="testimonial-video">
+            <video controls preload="metadata" poster="">
+              <source src="https://www.tostemindia.com/wp-content/uploads/2024/09/Customer-Testimonial-Mr.-Amarnath-Deltra-Global.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="testimonial-info">
+            <h4>Mr. Amarnath</h4>
+            <p>Deltra Global</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-video">
+            <video controls preload="metadata">
+              <source src="https://www.tostemindia.com/wp-content/uploads/2024/09/Customer-Testimonial-Mr.-Dheeraj-Hyderabad-Deltra-Global.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="testimonial-info">
+            <h4>Mr. Dheeraj</h4>
+            <p>Hyderabad, Deltra Aluminum</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-video">
+            <video controls preload="metadata">
+              <source src="https://www.tostemindia.com/wp-content/uploads/2024/09/Real-Homes-Real-Stories-Deltra-Aluminum-Doors-Windows.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="testimonial-info">
+            <h4>Deltra Aluminum</h4>
+            <p>Real Homes, Real Stories</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-nav">
+      <button class="testi-prev"><img src="https://www.tostemindia.com/wp-content/themes/tostem/images/wht-lft-arw.png" alt="Previous"></button>
+      <button class="testi-next"><img src="https://www.tostemindia.com/wp-content/themes/tostem/images/wht-rgt-arw.png" alt="Next"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GALLERY ========== -->
+<section class="gallery-section" id="gallery">
+  <div class="section-header fade-in">
+    <h2>Project Gallery</h2>
+    <p>Explore stunning installations of TOSTEM products across India</p>
+  </div>
+  <div class="gallery-collage">
+    <div class="gallery-item gi-large" data-label="Fixed Window" data-index="0">
+      <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/DSC03783-1.jpg" alt="Fixed Window">
+    </div>
+    <div class="gallery-item gi-tall" data-label="Sliding Window" data-index="1">
+      <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/d-Natures-Island-58.jpg" alt="Sliding Window">
+    </div>
+    <div class="gallery-item" data-label="Sliding Window" data-index="2">
+      <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/DJI_0528-1.jpg" alt="Sliding Window">
+    </div>
+    <div class="gallery-item" data-label="De-Vielle" data-index="3">
+      <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/De-Vielle_36.jpg" alt="De-Vielle">
+    </div>
+    <div class="gallery-item gi-wide" data-label="French Window" data-index="4">
+      <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Copy-of-12-1.jpg" alt="French Window">
+    </div>
+    <div class="gallery-item" data-label="Sliding Window" data-index="5">
+      <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Copy-of-12.jpg" alt="Sliding Window">
+    </div>
+    <div class="gallery-item" data-label="Sliding Window" data-index="6">
+      <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Copy-of-11.jpg" alt="Sliding Window">
+    </div>
+    <div class="gallery-item" data-label="Sliding Window" data-index="7">
+      <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Copy-of-08.jpg" alt="Sliding Window">
+    </div>
+    <div class="gallery-item" data-label="Sliding Window" data-index="8">
+      <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Copy-of-05.jpg" alt="Sliding Window">
+    </div>
+    <div class="gallery-item gi-wide" data-label="Sliding Window, Fixed Window" data-index="9">
+      <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Copy-of-4.jpg" alt="Sliding Window, Fixed window">
+    </div>
+    <div class="gallery-item" data-label="Sliding & Fixed Window" data-index="10">
+      <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/c-Natures-Island-93.jpg" alt="Sliding Window, Fixed Window">
+    </div>
+    <div class="gallery-item" data-label="Baan-Nawat" data-index="11">
+      <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Baan-Nawat-35.jpg" alt="Baan-Nawat">
+    </div>
+  </div>
+
+  <!-- Gallery Carousel -->
+  <div class="gallery-carousel-section">
+    <div class="swiper gallery-carousel-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2020/07/home-gallery-img-1-748x441.jpg" alt="Gallery Image 1">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2020/07/home-gallery-img-2-461x629.jpg" alt="Gallery Image 2">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2020/07/home-gallery-img-3.jpg" alt="Gallery Image 3">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2020/07/home-gallery-img-4-869x484.jpg" alt="Gallery Image 4">
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <div class="gallery-view-btn">
+    <a href="#" class="btn-primary"><i class="fa-solid fa-images"></i> View Full Gallery</a>
+  </div>
+</section>
+
+<!-- ========== BLOG ========== -->
+<section class="blog-section" id="blog">
+  <div class="blog-inner">
+    <div class="section-header">
+      <h2>Knowledge Centre</h2>
+      <a href="#" class="btn-outline" style="border-color:var(--primary);color:var(--primary);padding:10px 24px;font-size:12px;">View All Blogs <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="blog-grid">
+      <!-- Featured Blog -->
+      <div class="blog-featured">
+        <div class="blog-card blog-card-large" data-blog="0" style="opacity:1;transform:none;">
+          <div class="blog-card-img">
+            <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/10/Different-Stained-Glass-Designs-for-Doors-and-Windows.jpg" alt="Different Stained Glass Designs for Doors and Windows">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Aluminium Doors</div>
+            <h3>Different Stained Glass Designs for Doors and Windows</h3>
+            <div class="blog-card-date">3 Oct 2025</div>
+          </div>
+        </div>
+      </div>
+      <!-- Small Blog Stack -->
+      <div class="blog-small-stack">
+        <div class="blog-card blog-small" data-blog="1">
+          <div class="blog-card-img">
+            <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/10/Plywood-Almirah-banner.jpg" alt="Plywood Almirah Design Ideas">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Miscellaneous</div>
+            <h3>Plywood Almirah Design Ideas: Modern Storage Solutions with Window Integration</h3>
+            <div class="blog-card-date">12 Nov 2025</div>
+          </div>
+        </div>
+        <div class="blog-card blog-small" data-blog="2">
+          <div class="blog-card-img">
+            <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2021/02/French-Doors-627x317.jpg" alt="French Doors vs Sliding Doors">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Aluminium Doors</div>
+            <h3>French Doors vs Sliding Doors for Balcony: Which Is A Better Option</h3>
+            <div class="blog-card-date">February 2nd, 2021</div>
+          </div>
+        </div>
+        <div class="blog-card blog-small" data-blog="3">
+          <div class="blog-card-img">
+            <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2021/02/Amazing-Aluminium-Door-422x329.jpg" alt="Amazing Aluminium Door Designs">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Aluminium Doors</div>
+            <h3>Amazing Aluminium Door Designs To Transform Your Home</h3>
+            <div class="blog-card-date">February 2nd, 2021</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer" id="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/themes/tostem/images/white-logo.png" alt="TOSTEM White Logo">
+      <p>TOSTEM, by LIXIL, brings Japanese innovation in aluminium windows and doors to India. Our pre-engineered system products deliver world-class quality with TEXGUARD surface protection technology.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#">About Tostem</a>
+      <a href="#">Why Tostem</a>
+      <a href="#">Products</a>
+      <a href="#">Driving Experience</a>
+      <a href="#">TADA</a>
+      <a href="#">Knowledge Centre</a>
+      <a href="#">Careers</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div class="footer-col footer-contact">
+      <h4>Contact Us</h4>
+      <p><i class="fa-solid fa-location-dot"></i> TOSTEM India Showroom, Bandra Kurla Complex, Mumbai, Maharashtra 400051, India</p>
+      <p><i class="fa-solid fa-phone"></i> +91 1800 266 8888</p>
+      <p><i class="fa-solid fa-envelope"></i> info@tostemindia.com</p>
+    </div>
+    <div class="footer-col footer-newsletter">
+      <h4>Newsletter</h4>
+      <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:16px;">Subscribe to get the latest updates on products and offers.</p>
+      <input type="email" placeholder="Enter your email" aria-label="Email for newsletter">
+      <button class="btn-primary">Subscribe</button>
+    </div>
+  </div>
+  <div class="footer-brand-logos">
+    <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2020/12/american-s-sm.png" alt="American Standard">
+    <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2020/12/grohe-sm.png" alt="Grohe">
+    <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2020/12/tostem-sm.png" alt="Tostem">
+    <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2020/12/inax-sm.png" alt="INAX">
+    <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2020/12/lixil-sm.png" alt="LIXIL">
+  </div>
+  <div class="footer-copyright">
+    &copy; 2025 TOSTEM India. All rights reserved. A <a href="#">LIXIL</a> Brand. |
+    <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Sitemap</a>
+  </div>
+</footer>
+
+<!-- ========== ENQUIRE NOW ========== -->
+<a href="#enquire" class="enquire-btn" id="enquire">Enquire Now</a>
+
+<!-- ========== COOKIE CONSENT ========== -->
+<div class="cookie-bar" id="cookieBar">
+  <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. <a href="#">Learn more</a></p>
+  <button class="cookie-decline" id="cookieDecline">Decline</button>
+  <button class="cookie-accept" id="cookieAccept">Accept All</button>
+</div>
+
+<!-- ========== LIGHTBOX ========== -->
+<div class="lightbox-overlay" id="lightbox">
+  <span class="lightbox-close" id="lightboxClose">&times;</span>
+  <span class="lightbox-nav lightbox-prev" id="lightboxPrev"><i class="fa-solid fa-chevron-left"></i></span>
+  <span class="lightbox-nav lightbox-next" id="lightboxNext"><i class="fa-solid fa-chevron-right"></i></span>
+  <img src="" alt="Gallery Image" id="lightboxImg">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<!-- ========== BLOG MODAL ========== -->
+<div class="blog-modal-overlay" id="blogModal">
+  <div class="blog-modal" style="position:relative;">
+    <button class="blog-modal-close" id="blogModalClose"><i class="fa-solid fa-xmark"></i></button>
+    <img src="" alt="Blog Image" class="blog-modal-img" id="blogModalImg">
+    <div class="blog-modal-body">
+      <div class="blog-card-category" id="blogModalCategory"></div>
+      <h2 id="blogModalTitle"></h2>
+      <div class="blog-card-date" id="blogModalDate"></div>
+      <p id="blogModalDesc1"></p>
+      <p id="blogModalDesc2"></p>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCRIPTS ========== -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  // ===== THEME & DESIGN SWITCHER =====
+  const themeSelect = document.getElementById('themeSelect');
+  const designSelect = document.getElementById('designSelect');
+
+  themeSelect.addEventListener('change', function(){
+    document.body.className = document.body.className.replace(/theme-\S+/g,'').trim();
+    if(this.value) document.body.classList.add(this.value);
+  });
+
+  designSelect.addEventListener('change', function(){
+    document.body.className = document.body.className.replace(/design-\S+/g,'').trim();
+    if(this.value !== 'default') document.body.classList.add('design-' + this.value);
+  });
+
+  // ===== MOBILE NAV =====
+  const navToggle = document.getElementById('navToggle');
+  const navMain = document.getElementById('navMain');
+
+  navToggle.addEventListener('click', function(){
+    navMain.classList.toggle('open');
+    const spans = this.querySelectorAll('span');
+    if(navMain.classList.contains('open')){
+      spans[0].style.transform='rotate(45deg) translate(5px,5px)';
+      spans[1].style.opacity='0';
+      spans[2].style.transform='rotate(-45deg) translate(5px,-5px)';
+    } else {
+      spans[0].style.transform='';
+      spans[1].style.opacity='1';
+      spans[2].style.transform='';
+    }
+  });
+
+  // Mobile dropdown toggle
+  document.querySelectorAll('.nav-main > li').forEach(function(li){
+    const dropdown = li.querySelector('.nav-dropdown');
+    if(dropdown && window.innerWidth < 992){
+      li.querySelector('a').addEventListener('click', function(e){
+        if(window.innerWidth < 992){
+          e.preventDefault();
+          li.classList.toggle('dropdown-open');
+        }
+      });
+    }
+  });
+
+  // ===== MEGA MENU =====
+  const megaTrigger = document.getElementById('megaTrigger');
+  const megaMenu = document.getElementById('megaMenu');
+  const megaTabBtns = document.querySelectorAll('.mega-tab-btn');
+  const megaTabContents = document.querySelectorAll('.mega-tab-content');
+
+  megaTrigger.addEventListener('mouseenter', function(){
+    megaMenu.classList.add('active');
+  });
+
+  megaTrigger.closest('.has-mega').addEventListener('mouseleave', function(){
+    // small delay
+  });
+
+  document.querySelector('.nav-wrapper').addEventListener('mouseleave', function(){
+    megaMenu.classList.remove('active');
+  });
+
+  megaMenu.addEventListener('mouseleave', function(){
+    megaMenu.classList.remove('active');
+  });
+
+  megaMenu.addEventListener('mouseenter', function(){
+    megaMenu.classList.add('active');
+  });
+
+  megaTabBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      megaTabBtns.forEach(function(b){ b.classList.remove('active'); });
+      megaTabContents.forEach(function(c){ c.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // ===== READ MORE =====
+  const readMoreBtn = document.getElementById('readMoreBtn');
+  const readMoreContent = document.getElementById('readMoreContent');
+  let readMoreExpanded = false;
+
+  readMoreBtn.addEventListener('click', function(){
+    readMoreExpanded = !readMoreExpanded;
+    readMoreContent.classList.toggle('expanded');
+    this.innerHTML = readMoreExpanded
+      ? 'Read Less <i class="fa-solid fa-arrow-up"></i>'
+      : 'Read More <i class="fa-solid fa-arrow-right"></i>';
+  });
+
+  // ===== PRODUCT TABS =====
+  const productTabBtns = document.querySelectorAll('.tab-btn');
+  const productTabContents = document.querySelectorAll('.tab-content');
+
+  productTabBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      productTabBtns.forEach(function(b){ b.classList.remove('active'); });
+      productTabContents.forEach(function(c){ c.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.productTab).classList.add('active');
+    });
+  });
+
+  // ===== SWIPER CAROUSELS =====
+  new Swiper('.testimonial-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: { delay: 5000, disableOnInteraction: false },
+    navigation: {
+      prevEl: '.testi-prev',
+      nextEl: '.testi-next'
+    },
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+  });
+
+  new Swiper('.gallery-carousel-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 16,
+    loop: true,
+    autoplay: { delay: 3000, disableOnInteraction: false },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    breakpoints: {
+      640: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+  });
+
+  // ===== GALLERY LIGHTBOX =====
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  let currentGalleryIndex = 0;
+
+  const galleryImages = [
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/DSC03783-1.jpg', label:'Fixed Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/d-Natures-Island-58.jpg', label:'Sliding Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/DJI_0528-1.jpg', label:'Sliding Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/De-Vielle_36.jpg', label:'De-Vielle' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Copy-of-12-1.jpg', label:'French Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Copy-of-12.jpg', label:'Sliding Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Copy-of-11.jpg', label:'Sliding Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Copy-of-08.jpg', label:'Sliding Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Copy-of-05.jpg', label:'Sliding Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Copy-of-4.jpg', label:'Sliding Window, Fixed Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/c-Natures-Island-93.jpg', label:'Sliding & Fixed Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Baan-Nawat-35.jpg', label:'Baan-Nawat' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Baan-Nawat-29.jpg', label:'Sliding Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/AP-Palazzo-70.jpg', label:'Sliding Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/05-Central-Dry-Court-18.jpg', label:'Sliding Door' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Tostem-Chevalife_10.jpg', label:'Casement & Sliding Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Tara-Keree-43.jpg', label:'Entrance Door' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/SJP1631-Enhanced-NR-Edit.jpg', label:'Arch & Fixed Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Nirvana-Beyond-03-lowres.jpg', label:'Glass to Glass Corner Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Nawathani-062.jpg', label:'Folding Door' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Formal-living-to-landscape.jpg', label:'Sliding Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Exteriors-23.jpg', label:'Sliding Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/DSC_7850-JPG.jpg', label:'Slide & Fold' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/DSC04277.jpg', label:'Fixed Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Oxygen_51.jpg', label:'Fixed & Sliding Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Sarin-Vista-24-lowres.jpg', label:'Sliding & Fixed Window' },
+    { src:'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Plover-13.jpg', label:'Fixed Door' }
+  ];
+
+  function openLightbox(index){
+    currentGalleryIndex = index;
+    lightboxImg.src = galleryImages[index].src;
+    lightboxCaption.textContent = galleryImages[index].label;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  galleryItems.forEach(function(item){
+    item.addEventListener('click', function(){
+      openLightbox(parseInt(item.dataset.index));
+    });
+  });
+
+  lightboxClose.addEventListener('click', function(){
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  lightbox.addEventListener('click', function(e){
+    if(e.target === lightbox){
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  lightboxPrev.addEventListener('click', function(e){
+    e.stopPropagation();
+    currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentGalleryIndex].src;
+    lightboxCaption.textContent = galleryImages[currentGalleryIndex].label;
+  });
+
+  lightboxNext.addEventListener('click', function(e){
+    e.stopPropagation();
+    currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentGalleryIndex].src;
+    lightboxCaption.textContent = galleryImages[currentGalleryIndex].label;
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(!lightbox.classList.contains('active')) return;
+    if(e.key === 'Escape'){
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    if(e.key === 'ArrowLeft') lightboxPrev.click();
+    if(e.key === 'ArrowRight') lightboxNext.click();
+  });
+
+  // ===== BLOG MODAL =====
+  const blogModal = document.getElementById('blogModal');
+  const blogModalClose = document.getElementById('blogModalClose');
+  const blogCards = document.querySelectorAll('.blog-card');
+
+  const blogData = [
+    {
+      title: 'Different Stained Glass Designs for Doors and Windows',
+      category: 'Aluminium Doors',
+      date: '3 Oct 2025',
+      img: 'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/10/Different-Stained-Glass-Designs-for-Doors-and-Windows.jpg',
+      desc1: 'Stained glass has been a timeless design element in architecture, adding elegance and character to doors and windows. From traditional floral motifs to modern geometric patterns, stained glass designs can transform the look of any space. When combined with TOSTEM\'s precision-engineered aluminium frames, stained glass creates stunning visual statements while maintaining structural integrity and weather performance.',
+      desc2: 'Whether you prefer the classic charm of Victorian-inspired designs or the clean lines of contemporary art glass, TOSTEM\'s aluminium door and window systems provide the perfect canvas for stained glass installations. The slim profile of our frames maximizes the glass area, allowing the beauty of stained glass to take center stage while ensuring energy efficiency and security.'
+    },
+    {
+      title: 'Plywood Almirah Design Ideas: Modern Storage Solutions with Window Integration',
+      category: 'Miscellaneous',
+      date: '12 Nov 2025',
+      img: 'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/10/Plywood-Almirah-banner.jpg',
+      desc1: 'Modern almirah designs are evolving beyond traditional storage to incorporate innovative elements including window integration. Plywood almirahs with built-in window features create unique storage solutions that maximize natural light and ventilation while maintaining privacy and organization.',
+      desc2: 'TOSTEM\'s aluminium window systems can be seamlessly integrated into custom almirah designs, creating a harmonious blend of functionality and aesthetics. Whether for bedrooms, living rooms, or dressing areas, these innovative designs offer practical storage with the added benefit of natural illumination.'
+    },
+    {
+      title: 'French Doors vs Sliding Doors for Balcony: Which Is A Better Option',
+      category: 'Aluminium Doors',
+      date: 'February 2nd, 2021',
+      img: 'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2021/02/French-Doors-627x317.jpg',
+      desc1: 'When it comes to balcony access, both French doors and sliding doors offer distinct advantages. French doors provide a classic, elegant look with wide openings and traditional charm. They swing open to create a generous entryway, perfect for homes that value traditional aesthetics and full-width access.',
+      desc2: 'Sliding doors, on the other hand, are space-efficient and modern. They glide smoothly along a track, making them ideal for compact spaces where swing clearance is limited. TOSTEM\'s sliding doors feature advanced roller systems for effortless operation and superior weather sealing, while our French doors offer multi-point locking for enhanced security and thermal performance.'
+    },
+    {
+      title: 'Amazing Aluminium Door Designs To Transform Your Home',
+      category: 'Aluminium Doors',
+      date: 'February 2nd, 2021',
+      img: 'https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2021/02/Amazing-Aluminium-Door-422x329.jpg',
+      desc1: 'Aluminium doors have revolutionized modern home design with their sleek profiles, durability, and versatility. From grand entrance doors to elegant interior partitions, aluminium door designs offer endless possibilities for transforming your living spaces.',
+      desc2: 'TOSTEM\'s range of aluminium doors combines Japanese engineering precision with stunning aesthetics. Available in a variety of styles including sliding, casement, French, and bi-fold, each door features TEXGUARD surface protection, multi-point locking, and superior thermal insulation. Discover how TOSTEM aluminium doors can elevate the beauty and functionality of your home.'
+    }
+  ];
+
+  blogCards.forEach(function(card){
+    card.addEventListener('click', function(){
+      const index = parseInt(card.dataset.blog);
+      const data = blogData[index];
+      document.getElementById('blogModalImg').src = data.img;
+      document.getElementById('blogModalCategory').textContent = data.category;
+      document.getElementById('blogModalTitle').textContent = data.title;
+      document.getElementById('blogModalDate').textContent = data.date;
+      document.getElementById('blogModalDesc1').textContent = data.desc1;
+      document.getElementById('blogModalDesc2').textContent = data.desc2;
+      blogModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  blogModalClose.addEventListener('click', function(){
+    blogModal.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  blogModal.addEventListener('click', function(e){
+    if(e.target === blogModal){
+      blogModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // ===== COOKIE CONSENT =====
+  const cookieBar = document.getElementById('cookieBar');
+  const cookieAccept = document.getElementById('cookieAccept');
+  const cookieDecline = document.getElementById('cookieDecline');
+
+  if(!localStorage.getItem('cookieConsent')){
+    setTimeout(function(){ cookieBar.classList.add('visible'); }, 2000);
+  }
+
+  cookieAccept.addEventListener('click', function(){
+    localStorage.setItem('cookieConsent','accepted');
+    cookieBar.classList.remove('visible');
+  });
+
+  cookieDecline.addEventListener('click', function(){
+    localStorage.setItem('cookieConsent','declined');
+    cookieBar.classList.remove('visible');
+  });
+
+  // ===== SCROLL ANIMATIONS =====
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('animated');
+        // For feature cards, stagger the animation
+        if(entry.target.classList.contains('feature-card')){
+          const cards = document.querySelectorAll('.feature-card');
+          cards.forEach(function(card, i){
+            setTimeout(function(){
+              card.classList.add('animated');
+            }, i * 150);
+          });
+        }
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .feature-card, .blog-card').forEach(function(el){
+    observer.observe(el);
+  });
+
+  // ===== COUNTER ANIMATION =====
+  const statNumbers = document.querySelectorAll('.stat-number');
+  let counterStarted = false;
+
+  const counterObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting && !counterStarted){
+        counterStarted = true;
+        statNumbers.forEach(function(num){
+          const target = parseInt(num.dataset.target);
+          let current = 0;
+          const increment = target / 60;
+          const suffix = target >= 10000 ? '+' : '+';
+          const timer = setInterval(function(){
+            current += increment;
+            if(current >= target){
+              current = target;
+              clearInterval(timer);
+            }
+            num.textContent = Math.floor(current).toLocaleString() + suffix;
+          }, 30);
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelector('.stats-bar') && counterObserver.observe(document.querySelector('.stats-bar'));
+
+  // ===== PARALLAX ON HERO =====
+  window.addEventListener('scroll', function(){
+    const hero = document.getElementById('hero');
+    if(hero){
+      const scrolled = window.pageYOffset;
+      const heroHeight = hero.offsetHeight;
+      if(scrolled < heroHeight){
+        hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+      }
+    }
+  });
+
+  // ===== MOBILE VIDEO =====
+  function checkMobileVideo(){
+    const video = document.getElementById('heroVideo');
+    if(window.innerWidth < 768){
+      video.querySelector('source').src = 'https://www.tostemindia.com/wp-content/themes/tostem/video/MobileVersion_Grants.mp4';
+      video.load();
+    }
+  }
+  checkMobileVideo();
+  window.addEventListener('resize', checkMobileVideo);
+
+  // ===== SMOOTH SCROLL =====
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      const target = document.querySelector(this.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({ behavior:'smooth', block:'start' });
+      }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
