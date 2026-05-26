@@ -26,3 +26,26 @@ Stage Summary:
 - Responsive design with mobile support
 - Gallery with zoom modal, Blog with popup modal
 - Two theme selector dropdowns at top-right
+
+---
+Task ID: 1
+Agent: Main Agent
+Task: Merge HTML fixes to React Next.js page (7 fixes)
+
+Work Log:
+- Read and analyzed the standalone HTML file at `/home/z/my-project/download/tostem-india-homepage.html`
+- Read and analyzed the React page at `/home/z/my-project/src/app/page.tsx` (1064 lines)
+- Identified 7 specific fixes from the HTML that needed to be applied to React
+- Delegated all 7 fixes to full-stack-developer agent
+- Verified all fixes were applied correctly via grep checks
+- Verified the Next.js production build succeeds without errors
+
+Stage Summary:
+- Fix 1: Created TopBar component (white bg, sticky, logo + Get Quote + Contact Us) separate from Navigation (dark bg, nav items only)
+- Fix 2: Added whitespace-nowrap to all nav buttons and tab buttons
+- Fix 3: Replaced Pre-engineered System image with Tostem CDN URL
+- Fix 4: Replaced all 6 product tab images with Tostem CDN URLs
+- Fix 5: Added testimonial video URLs and video player with play button overlay
+- Fix 6: Replaced gallery images (Sliding Door, Casement Window, etc.) with Tostem CDN URLs
+- Fix 7: Changed Knowledge Centre header from centered text to flex row (title left, View All Blogs right)
+- Build verified: `npx next build` compiles successfully

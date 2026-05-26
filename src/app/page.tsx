@@ -28,6 +28,7 @@ import {
   Maximize2,
   ExternalLink,
   Quote,
+  FileText,
 } from "lucide-react";
 
 // ===================== ANIMATION WRAPPERS =====================
@@ -64,17 +65,56 @@ function ScaleInWhenVisible({ children, delay = 0 }: { children: React.ReactNode
   );
 }
 
-// ===================== NAVIGATION =====================
-function Navigation({ theme }: { theme: ThemeColors }) {
-  const [mobileOpen, setMobileOpen] = useState(false);
+// ===================== TOP BAR (Fix 1) =====================
+function TopBar({ theme, mobileOpen, onToggleMobile }: { theme: ThemeColors; mobileOpen: boolean; onToggleMobile: () => void }) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  return (
+    <div className={`sticky top-0 z-[1000] bg-white transition-all duration-300 ${scrolled ? "shadow-lg" : "shadow-md"}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex items-center gap-3">
+            <img
+              src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2024/07/logo-tostemindia.png"
+              alt="TOSTEM India Logo"
+              className="h-10 w-auto"
+            />
+          </motion.div>
+
+          {/* Tagline + Buttons - Desktop */}
+          <div className="hidden lg:flex items-center gap-6">
+            <span className="text-sm font-medium text-gray-700 tracking-wide">
+              <span className="font-bold" style={{ color: theme.preview }}>Japanese Innovation</span> in Window Design
+            </span>
+            <div className="flex items-center gap-3">
+              <button className={`${theme.buttonPrimary} px-5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wide transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2`}>
+                <FileText className="w-3.5 h-3.5" /> Get Quote
+              </button>
+              <button className="px-5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wide border-2 transition-all duration-300 flex items-center gap-2 hover:text-white" style={{ borderColor: theme.preview, color: theme.preview }}>
+                <Phone className="w-3.5 h-3.5" /> Contact Us
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile toggle */}
+          <button onClick={onToggleMobile} className="lg:hidden p-2" style={{ color: theme.preview }}>
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ===================== NAVIGATION (Fix 1 + Fix 2) =====================
+function Navigation({ theme, mobileOpen, setMobileOpen }: { theme: ThemeColors; mobileOpen: boolean; setMobileOpen: (v: boolean) => void }) {
   const navItems = [
     {
       label: "About Tostem",
@@ -101,53 +141,27 @@ function Navigation({ theme }: { theme: ThemeColors }) {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${theme.navBg} ${scrolled ? "shadow-2xl py-2" : "py-4"}`}>
+    <nav className={`sticky top-16 z-[999] ${theme.navBg} shadow-lg`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-              <span className="text-white font-bold text-lg">T</span>
-            </div>
-            <span className="text-white font-semibold text-xl tracking-wide">TOSTEM</span>
-          </motion.div>
-
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => (
-              <div key={item.label} className="relative group">
-                <button className={`px-3 py-2 text-sm font-medium ${theme.navText} ${theme.navHover} transition-colors duration-200 flex items-center gap-1 rounded-lg`}>
-                  {item.label}
-                  <ChevronDown className="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" />
-                </button>
-                <div className="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 overflow-hidden">
-                  <div className="py-2">
-                    {item.items.map((sub, i) => (
-                      <a key={i} href="#" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors">
-                        {sub}
-                      </a>
-                    ))}
-                  </div>
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex items-center justify-center gap-0">
+          {navItems.map((item) => (
+            <div key={item.label} className="relative group">
+              <button className={`px-4 py-3.5 text-xs font-semibold uppercase tracking-wide whitespace-nowrap ${theme.navText} ${theme.navHover} transition-colors duration-200 flex items-center gap-1`}>
+                {item.label}
+                <ChevronDown className="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" />
+              </button>
+              <div className="absolute top-full left-0 mt-0 w-64 bg-white rounded-b-xl shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 overflow-hidden z-50">
+                <div className="py-2">
+                  {item.items.map((sub, i) => (
+                    <a key={i} href="#" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors">
+                      {sub}
+                    </a>
+                  ))}
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <a href="tel:18001036855" className="text-white/80 hover:text-white text-sm flex items-center gap-1 transition-colors">
-              <Phone className="w-4 h-4" />
-              18001036855
-            </a>
-            <button className={`${theme.buttonPrimary} px-5 py-2 rounded-lg text-sm font-medium transition-all duration-300 shadow-lg hover:shadow-xl`}>
-              Get Quote
-            </button>
-          </div>
-
-          {/* Mobile toggle */}
-          <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden text-white p-2">
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            </div>
+          ))}
         </div>
 
         {/* Mobile menu */}
@@ -163,9 +177,14 @@ function Navigation({ theme }: { theme: ThemeColors }) {
                 {navItems.map((item) => (
                   <MobileNavItem key={item.label} item={item} theme={theme} />
                 ))}
-                <button className={`w-full ${theme.buttonPrimary} px-5 py-3 rounded-lg text-sm font-medium mt-4`}>
-                  Get Quote
-                </button>
+                <div className="flex gap-3 mt-4 pt-4 border-t border-white/10">
+                  <button className={`flex-1 ${theme.buttonPrimary} px-5 py-3 rounded-lg text-sm font-medium flex items-center justify-center gap-2`}>
+                    <FileText className="w-4 h-4" /> Get Quote
+                  </button>
+                  <button className="flex-1 px-5 py-3 rounded-lg text-sm font-medium border-2 border-white/30 text-white flex items-center justify-center gap-2">
+                    <Phone className="w-4 h-4" /> Contact Us
+                  </button>
+                </div>
               </div>
             </motion.div>
           )}
@@ -179,7 +198,7 @@ function MobileNavItem({ item, theme }: { item: { label: string; items: string[]
   const [open, setOpen] = useState(false);
   return (
     <div>
-      <button onClick={() => setOpen(!open)} className={`w-full flex items-center justify-between px-3 py-2 text-sm font-medium ${theme.navText} ${theme.navHover}`}>
+      <button onClick={() => setOpen(!open)} className={`w-full flex items-center justify-between px-3 py-2 text-sm font-medium whitespace-nowrap ${theme.navText} ${theme.navHover}`}>
         {item.label}
         <ChevronDown className={`w-4 h-4 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
@@ -207,7 +226,7 @@ function ThemeSelectors() {
   const [designOpen, setDesignOpen] = useState(false);
 
   return (
-    <div className="fixed top-20 right-4 z-50 flex flex-col gap-2">
+    <div className="fixed top-32 right-4 z-50 flex flex-col gap-2">
       {/* Color Theme Selector */}
       <div className="relative">
         <button
@@ -455,7 +474,7 @@ function AboutSection({ theme }: { theme: ThemeColors }) {
   );
 }
 
-// ===================== FEATURES SECTION =====================
+// ===================== FEATURES SECTION (Fix 3) =====================
 function FeaturesSection({ theme }: { theme: ThemeColors }) {
   const features = [
     { icon: <Zap className="w-6 h-6" />, title: "Japanese Innovation", desc: "Cutting-edge technology from Japan delivering superior performance and design excellence.", link: "Japanese Innovation" },
@@ -477,7 +496,7 @@ function FeaturesSection({ theme }: { theme: ThemeColors }) {
                 <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=300&q=80" alt="Red Dot Award" className="w-full h-36 object-cover" />
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} className="rounded-xl overflow-hidden shadow-lg">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=300&q=80" alt="Pre-engineered" className="w-full h-36 object-cover" />
+                <img src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Copy-of-08.jpg" alt="Pre-engineered" className="w-full h-36 object-cover" />
               </motion.div>
             </div>
           </FadeInWhenVisible>
@@ -517,38 +536,38 @@ function FeaturesSection({ theme }: { theme: ThemeColors }) {
   );
 }
 
-// ===================== PRODUCT TABS SECTION =====================
+// ===================== PRODUCT TABS SECTION (Fix 4) =====================
 function ProductTabsSection({ theme }: { theme: ThemeColors }) {
   const [activeTab, setActiveTab] = useState(0);
   const tabs = [
     {
       label: "Aluminium Doors",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1000&q=80",
+      image: "https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Aluminum-Doors-Home-Office.jpg",
       desc: "TOSTEM brings you the finest-designed aluminium doors for your home and office spaces. From aluminium bi-fold doors to sliding doors, folding doors, casement doors — every design is crafted with precision and backed by Japanese technology for unmatched durability and elegance.",
     },
     {
       label: "Aluminium Windows",
-      image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1000&q=80",
+      image: "https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Aluminium-Windows-Home-Office-1.jpg",
       desc: "At TOSTEM India, we redefine the concept of aluminium windows manufactured with cutting-edge design, superior performance, and modern functionality. Our products are a perfect blend of aesthetics and engineering, delivering world-class thermal and sound insulation.",
     },
     {
       label: "Steel Entrance Doors",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1000&q=80",
+      image: "https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Warangkana-House-57.jpg",
       desc: "TOSTEM introduces ultra-modern steel front doors designed to enhance the look and security of contemporary homes. Available in exquisite patterns and premium colours, these doors combine robust steel construction with elegant aesthetics.",
     },
     {
       label: "Aluminium Facades",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1000&q=80",
+      image: "https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/08/Header-Image_IN-16-1171x506.jpg",
       desc: "TOSTEM INDIA introduces an exquisite collection of highly durable, performance-tested, and impeccably designed aluminium glass facades. Engineered with cutting-edge Japanese innovation, our facades offer stunning aesthetics and structural excellence.",
     },
     {
       label: "Aluminium Interior",
-      image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1000&q=80",
+      image: "https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2020/08/ez-banner-slide-1171x506.jpg",
       desc: "TOSTEM introduces its new IN16 interior series, embodying Japan's wisdom in the art of harmonious living. We create dividers that are not only made of aluminium but also embody elegance and functionality for modern living spaces.",
     },
     {
       label: "Airflow System",
-      image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1000&q=80",
+      image: "https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/07/Vive-32-lowres-2-1171x506.jpg",
       desc: "Understanding the unique needs of Indian homes, Tostem presents its innovative Airflow System, designed to enhance your living space with improved ventilation, safety, and comfort throughout the year.",
     },
   ];
@@ -570,7 +589,7 @@ function ProductTabsSection({ theme }: { theme: ThemeColors }) {
               <button
                 key={i}
                 onClick={() => setActiveTab(i)}
-                className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
+                className={`px-4 py-2.5 rounded-lg text-sm font-medium whitespace-nowrap transition-all duration-300 ${
                   activeTab === i
                     ? `${theme.buttonPrimary} shadow-md`
                     : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
@@ -609,14 +628,19 @@ function ProductTabsSection({ theme }: { theme: ThemeColors }) {
   );
 }
 
-// ===================== TESTIMONIALS SECTION =====================
+// ===================== TESTIMONIALS SECTION (Fix 5) =====================
 function TestimonialsSection({ theme }: { theme: ThemeColors }) {
   const testimonials = [
-    { name: "Mr. Amarnath", company: "Deltra Global", text: "The quality of TOSTEM windows exceeded our expectations. The installation was seamless and the product performance is outstanding.", video: true },
-    { name: "Mr. Dheeraj", company: "Hyderabad", text: "We chose TOSTEM for our dream home and couldn't be happier. The sound insulation and finish are world-class.", video: true },
-    { name: "Deltra Aluminum", company: "Doors & Windows", text: "TOSTEM's pre-engineered system made our project delivery smooth and error-free. Highly recommend for any construction project.", video: true },
+    { name: "Mr. Amarnath", company: "Deltra Global", text: "The quality of TOSTEM windows exceeded our expectations. The installation was seamless and the product performance is outstanding.", videoUrl: "https://www.tostemindia.com/wp-content/uploads/2024/09/Customer-Testimonial-Mr.-Amarnath-Deltra-Global.mp4" },
+    { name: "Mr. Dheeraj", company: "Hyderabad", text: "We chose TOSTEM for our dream home and couldn't be happier. The sound insulation and finish are world-class.", videoUrl: "https://www.tostemindia.com/wp-content/uploads/2024/09/Customer-Testimonial-Mr.-Dheeraj-Hyderabad-Deltra-Global.mp4" },
+    { name: "Deltra Aluminum", company: "Doors & Windows", text: "TOSTEM's pre-engineered system made our project delivery smooth and error-free. Highly recommend for any construction project.", videoUrl: "https://www.tostemindia.com/wp-content/uploads/2024/09/Real-Homes-Real-Stories-Deltra-Aluminum-Doors-Windows.mp4" },
   ];
   const [current, setCurrent] = useState(0);
+  const [playingVideo, setPlayingVideo] = useState<string | null>(null);
+
+  const handlePlayVideo = (videoUrl: string) => {
+    setPlayingVideo(videoUrl);
+  };
 
   return (
     <section className="py-20 bg-white">
@@ -644,29 +668,47 @@ function TestimonialsSection({ theme }: { theme: ThemeColors }) {
                   >
                     <Quote className={`w-10 h-10 mb-4`} style={{ color: theme.preview }} />
                     <p className="text-gray-700 text-lg leading-relaxed mb-6">{testimonials[current].text}</p>
+
+                    {/* Video Player */}
+                    {testimonials[current].videoUrl && (
+                      <div className="relative rounded-xl overflow-hidden mb-6 bg-black aspect-video">
+                        <video
+                          src={testimonials[current].videoUrl}
+                          className="w-full h-full object-cover"
+                          controls={playingVideo === testimonials[current].videoUrl}
+                          onEnded={() => setPlayingVideo(null)}
+                        />
+                        {playingVideo !== testimonials[current].videoUrl && (
+                          <button
+                            onClick={() => handlePlayVideo(testimonials[current].videoUrl)}
+                            className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition-colors"
+                          >
+                            <div className="w-14 h-14 rounded-full flex items-center justify-center shadow-xl" style={{ backgroundColor: theme.preview }}>
+                              <Play className="w-6 h-6 text-white ml-1" />
+                            </div>
+                          </button>
+                        )}
+                      </div>
+                    )}
+
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="font-semibold text-gray-900">— {testimonials[current].name}</p>
                         <p className="text-sm text-gray-500">{testimonials[current].company}</p>
                       </div>
-                      {testimonials[current].video && (
-                        <button className={`w-12 h-12 rounded-full ${theme.tag} flex items-center justify-center text-white shadow-lg`}>
-                          <Play className="w-5 h-5 ml-0.5" />
-                        </button>
-                      )}
                     </div>
                   </motion.div>
                 </AnimatePresence>
                 <div className="flex items-center gap-3 mt-6">
-                  <button onClick={() => setCurrent((c) => (c > 0 ? c - 1 : testimonials.length - 1))} className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <button onClick={() => { setCurrent((c) => (c > 0 ? c - 1 : testimonials.length - 1)); setPlayingVideo(null); }} className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors">
                     <ChevronLeft className="w-5 h-5" />
                   </button>
                   <div className="flex gap-2">
                     {testimonials.map((_, i) => (
-                      <button key={i} onClick={() => setCurrent(i)} className={`w-2.5 h-2.5 rounded-full transition-all ${i === current ? "w-8" : "bg-gray-300"}`} style={i === current ? { backgroundColor: theme.preview } : {}} />
+                      <button key={i} onClick={() => { setCurrent(i); setPlayingVideo(null); }} className={`w-2.5 h-2.5 rounded-full transition-all ${i === current ? "w-8" : "bg-gray-300"}`} style={i === current ? { backgroundColor: theme.preview } : {}} />
                     ))}
                   </div>
-                  <button onClick={() => setCurrent((c) => (c < testimonials.length - 1 ? c + 1 : 0))} className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <button onClick={() => { setCurrent((c) => (c < testimonials.length - 1 ? c + 1 : 0)); setPlayingVideo(null); }} className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors">
                     <ChevronRight className="w-5 h-5" />
                   </button>
                 </div>
@@ -679,16 +721,16 @@ function TestimonialsSection({ theme }: { theme: ThemeColors }) {
   );
 }
 
-// ===================== GALLERY SECTION =====================
+// ===================== GALLERY SECTION (Fix 6) =====================
 function GallerySection({ theme }: { theme: ThemeColors }) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const galleryImages = [
-    { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80", alt: "Casement & Sliding Window", h: "h-64" },
-    { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=80", alt: "Sliding Window", h: "h-48" },
+    { src: "https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Aluminum-Doors-Home-Office.jpg", alt: "Casement & Sliding Window", h: "h-64" },
+    { src: "https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Aluminium-Windows-Home-Office-1.jpg", alt: "Sliding Window", h: "h-48" },
     { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80", alt: "French Window", h: "h-56" },
     { src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&q=80", alt: "Fixed Window", h: "h-52" },
-    { src: "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=600&q=80", alt: "Entrance Door", h: "h-64" },
-    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80", alt: "Sliding Door", h: "h-48" },
+    { src: "https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Warangkana-House-57.jpg", alt: "Entrance Door", h: "h-64" },
+    { src: "https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2025/04/Copy-of-08.jpg", alt: "Sliding Door", h: "h-48" },
     { src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80", alt: "Facades", h: "h-56" },
     { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80", alt: "Folding Door", h: "h-52" },
   ];
@@ -760,7 +802,7 @@ function GallerySection({ theme }: { theme: ThemeColors }) {
   );
 }
 
-// ===================== BLOG SECTION =====================
+// ===================== BLOG SECTION (Fix 7) =====================
 function BlogSection({ theme }: { theme: ThemeColors }) {
   const [popupBlog, setPopupBlog] = useState<number | null>(null);
 
@@ -799,8 +841,11 @@ function BlogSection({ theme }: { theme: ThemeColors }) {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeInWhenVisible>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Visit Our Knowledge Centre</h2>
+          <div className="flex items-center justify-between mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 whitespace-nowrap">Visit Our Knowledge Centre</h2>
+            <button className="hidden sm:inline-flex px-6 py-2.5 rounded-lg text-sm font-medium border-2 transition-all duration-300 flex items-center gap-2 hover:text-white" style={{ borderColor: theme.preview, color: theme.preview }}>
+              View All Blogs <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </FadeInWhenVisible>
 
@@ -855,7 +900,7 @@ function BlogSection({ theme }: { theme: ThemeColors }) {
           </div>
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 sm:hidden">
           <button className={`${theme.buttonPrimary} px-8 py-3 rounded-xl font-medium text-sm flex items-center gap-2 mx-auto shadow-lg`}>
             View All Blogs <ArrowRight className="w-4 h-4" />
           </button>
@@ -940,10 +985,11 @@ function Footer({ theme }: { theme: ThemeColors }) {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-                <span className="text-white font-bold text-lg">T</span>
-              </div>
-              <span className="text-white font-semibold text-xl">TOSTEM</span>
+              <img
+                src="https://cdn-ildpppi.nitrocdn.com/xjROyyheOXReIMzlTkTVBhxlcelzUnWY/assets/images/optimized/rev-c76f7e6/www.tostemindia.com/wp-content/uploads/2024/07/logo-tostemindia.png"
+                alt="TOSTEM India Logo"
+                className="h-10 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-sm leading-relaxed opacity-80">
               LIXIL WINDOW SYSTEMS PRIVATE LIMITED
@@ -1013,7 +1059,7 @@ function Footer({ theme }: { theme: ThemeColors }) {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-xs opacity-50">© 2022-2025 TOSTEM India. All rights reserved.</p>
+            <p className="text-xs opacity-50">&copy; 2022-2025 TOSTEM India. All rights reserved.</p>
             <div className="flex items-center gap-6">
               {["American Standard", "GROHE", "TOSTEM", "INAX", "LIXIL"].map((b) => (
                 <span key={b} className="text-xs opacity-30 hover:opacity-60 transition-opacity cursor-pointer">{b}</span>
@@ -1030,6 +1076,7 @@ function Footer({ theme }: { theme: ThemeColors }) {
 export default function HomePage() {
   const { currentTheme } = useThemeStore();
   const [hydrated, setHydrated] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   // Using callback ref pattern to avoid lint issues
   const hydrationRef = useCallback((node: HTMLDivElement | null) => {
@@ -1048,7 +1095,8 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen">
-      <Navigation theme={currentTheme} />
+      <TopBar theme={currentTheme} mobileOpen={mobileNavOpen} onToggleMobile={() => setMobileNavOpen(!mobileNavOpen)} />
+      <Navigation theme={currentTheme} mobileOpen={mobileNavOpen} setMobileOpen={setMobileNavOpen} />
       <ThemeSelectors />
       <HeroSection theme={currentTheme} />
       <AboutSection theme={currentTheme} />
